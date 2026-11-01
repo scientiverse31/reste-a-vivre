@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcul du reste à vivre — calculateur gratuit</title>
+<meta name="description" content="Calculez gratuitement votre reste à vivre par mois, par jour et par personne. Simple, sans inscription, rien n'est envoyé.">
+<style>
+:root{--fond:#f6f2ea;--carte:#fff;--texte:#1f2a24;--doux:#5d6b63;--vert:#2d4a3e;--rouge:#b3261e;--bord:#e3ddd0}
+@media (prefers-color-scheme:dark){:root{--fond:#161a18;--carte:#1f2522;--texte:#ecebe6;--doux:#a9b3ad;--vert:#7fb89c;--rouge:#ef8f86;--bord:#333b37}}
+*{box-sizing:border-box}body{margin:0;background:var(--fond);color:var(--texte);font:17px/1.55 system-ui,'Segoe UI',sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 16px 60px}h1{font-size:2.1rem;line-height:1.15;margin:0 0 8px}
+p.s{color:var(--doux);margin:0 0 28px}.carte{background:var(--carte);border:1px solid var(--bord);border-radius:10px;padding:22px;margin-bottom:22px}
+h2{font-size:1.15rem;margin:0 0 14px}label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--bord)}
+label:last-child{border:0}input{width:130px;padding:8px 10px;font:inherit;text-align:right;border:1px solid var(--bord);border-radius:6px;background:var(--fond);color:var(--texte)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.res div{background:var(--fond);border-radius:8px;padding:14px}.res b{display:block;font-size:1.5rem}
+.neg b{color:var(--rouge)}a.btn{display:inline-block;background:var(--vert);color:var(--fond);padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600}
+small{color:var(--doux)}@media (max-width:560px){.res{grid-template-columns:1fr}input{width:110px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Calcul du reste à vivre</h1>
+<p class="s">Ce qu'il vous reste chaque mois une fois les charges fixes payées. Gratuit, sans inscription : le calcul se fait dans votre navigateur et rien n'est envoyé.</p>
+
+<div class="carte"><h2>Revenus du mois</h2>
+<label>Salaires nets <input type="number" min="0" step="any" data-r value="0"></label>
+<label>Allocations (CAF, etc.) <input type="number" min="0" step="any" data-r value="0"></label>
+<label>Autres revenus <input type="number" min="0" step="any" data-r value="0"></label>
+</div>
+
+<div class="carte"><h2>Charges fixes du mois</h2>
+<label>Loyer ou crédit immobilier <input type="number" min="0" step="any" data-c value="0"></label>
+<label>Énergie (électricité, gaz) <input type="number" min="0" step="any" data-c value="0"></label>
+<label>Eau <input type="number" min="0" step="any" data-c value="0"></label>
+<label>Internet et téléphone <input type="number" min="0" step="any" data-c value="0"></label>
+<label>Assurances <input type="number" min="0" step="any" data-c value="0"></label>
+<label>Transports <input type="number" min="0" step="any" data-c value="0"></label>
+<label>Crédits à la consommation <input type="number" min="0" step="any" data-c value="0"></label>
+<label>Impôts (mensualisés) <input type="number" min="0" step="any" data-c value="0"></label>
+<label>Abonnements <input type="number" min="0" step="any" data-c value="0"></label>
+<label>Nombre de personnes dans le foyer <input type="number" min="1" step="1" id="pers" value="1"></label>
+</div>
+
+<div class="carte" id="sortie"><h2>Votre reste à vivre</h2>
+<div class="res"><div>Par mois<b id="mois">0 €</b></div><div>Par jour<b id="jour">0 €</b></div><div>Par personne<b id="pp">0 €</b></div></div>
+<p><small>Taux d'effort (charges fixes ÷ revenus) : <span id="effort">—</span></small></p>
+</div>
+
+<div class="carte"><h2>Suivre son budget toute l'année</h2>
+<p>Le calcul ci-dessus donne une photo à un instant donné. Pour suivre vos dépenses mois après mois, le tableur <b>Mon budget 2026</b> (Excel et Google Sheets, en français) calcule seul votre reste à vivre, votre épargne et vos dépassements par catégorie.</p>
+<a class="btn" id="achat" href="#">Voir le tableur — 4,50 €</a>
+</div>
+
+<p><small>Outil d'organisation, pas un conseil financier. Les montants restent sur votre appareil.</small></p>
+</main>
+<script>
+const f = n => n.toLocaleString('fr-FR', {maximumFractionDigits: 0}) + ' €';
+const somme = sel => [...document.querySelectorAll(sel)].reduce((t, i) => t + (parseFloat(i.value) || 0), 0);
+function calcul() {
+  const r = somme('[data-r]'), c = somme('[data-c]'), reste = r - c;
+  const pers = Math.max(1, parseInt(document.getElementById('pers').value) || 1);
+  document.getElementById('mois').textContent = f(reste);
+  document.getElementById('jour').textContent = f(reste / 30);
+  document.getElementById('pp').textContent = f(reste / pers);
+  document.getElementById('effort').textContent = r > 0 ? Math.round(c / r * 100) + ' %' : '—';
+  document.getElementById('sortie').classList.toggle('neg', reste < 0);
+}
+document.addEventListener('input', calcul);
+calcul();
+</script>
+</body>
+</html>
