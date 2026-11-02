@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taux d'endettement — calculateur gratuit (règle des 35 %)</title>
+<meta name="description" content="Calculez votre taux d'endettement et la mensualité de crédit encore possible sous le plafond de 35 % fixé par le HCSF. Gratuit, sans inscription, rien n'est envoyé.">
+<link rel="canonical" href="https://scientiverse31.github.io/reste-a-vivre/taux-endettement.html">
+<style>
+:root{--fond:#f6f2ea;--carte:#fff;--texte:#1f2a24;--doux:#5d6b63;--vert:#2d4a3e;--rouge:#b3261e;--bord:#e3ddd0}
+@media (prefers-color-scheme:dark){:root{--fond:#161a18;--carte:#1f2522;--texte:#ecebe6;--doux:#a9b3ad;--vert:#7fb89c;--rouge:#ef8f86;--bord:#333b37}}
+*{box-sizing:border-box}body{margin:0;background:var(--fond);color:var(--texte);font:17px/1.55 system-ui,'Segoe UI',sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 16px 60px}h1{font-size:2.1rem;line-height:1.15;margin:0 0 8px}
+p.s{color:var(--doux);margin:0 0 28px}.carte{background:var(--carte);border:1px solid var(--bord);border-radius:10px;padding:22px;margin-bottom:22px}
+h2{font-size:1.15rem;margin:0 0 14px}label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--bord)}
+label:last-child{border:0}input{width:130px;padding:8px 10px;font:inherit;text-align:right;border:1px solid var(--bord);border-radius:6px;background:var(--fond);color:var(--texte)}
+table{width:100%;border-collapse:collapse}th,td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--bord)}th:first-child,td:first-child{text-align:left}
+.neg{color:var(--rouge);font-weight:600}a.btn{display:inline-block;background:var(--vert);color:var(--fond);padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600}
+nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(--doux)}@media (max-width:560px){input{width:110px}th,td{font-size:.9rem}}
+</style>
+</head>
+<body>
+<main>
+<nav><a href="./">Calcul du reste à vivre</a> · <a href="budget-50-30-20.html">Règle 50/30/20</a> · <b>Taux d'endettement</b></nav>
+<h1>Taux d'endettement : où en êtes-vous ?</h1>
+<p class="s">Les banques comparent vos mensualités de crédit à vos revenus nets. Depuis 2022, le Haut Conseil de stabilité financière (HCSF) leur demande de ne pas dépasser 35 %, assurance comprise, sauf exceptions. Rien n'est envoyé : le calcul se fait dans votre navigateur.</p>
+
+<div class="carte"><h2>Vos revenus et vos crédits (par mois)</h2>
+<label>Revenus nets du foyer <input type="number" min="0" step="any" id="rev" value="0"></label>
+<label>Mensualités de crédit en cours (assurance comprise) <input type="number" min="0" step="any" id="cred" value="0"></label>
+<label>Mensualité du nouveau crédit envisagé <input type="number" min="0" step="any" id="neuf" value="0"></label>
+</div>
+
+<div class="carte"><h2>Résultat</h2>
+<table>
+<tr><td>Taux d'endettement actuel</td><td id="tx1"></td></tr>
+<tr><td>Taux avec le nouveau crédit</td><td id="tx2"></td></tr>
+<tr><td>Mensualité maximale à 35 %</td><td id="max"></td></tr>
+<tr><td>Marge restante avec le nouveau crédit</td><td id="marge"></td></tr>
+<tr><td>Reste après tous les crédits</td><td id="reste"></td></tr>
+</table>
+<p><small>Un chiffre en rouge signifie que le plafond de 35 % est dépassé. La banque regarde aussi ce qu'il vous reste pour vivre : <a href="./">calculez votre reste à vivre</a>.</small></p>
+</div>
+
+<div class="carte"><h2>Préparer son dossier de crédit</h2>
+<p>Une banque demande souvent vos derniers relevés de compte. Le tableur <b>Mon budget 2026</b> (Excel et Google Sheets, en français) suit vos dépenses mois par mois et calcule seul votre taux d'épargne : vous savez ce que vous pouvez rembourser avant le rendez-vous.</p>
+<a class="btn" href="https://scientiverse.gumroad.com/l/mon-budget-2026">Voir le tableur — 4,50 €</a>
+</div>
+
+<p><small>Outil d'information, pas un conseil financier ni une offre de crédit. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. Chaque banque applique ses propres critères.</small></p>
+</main>
+<script>
+const PLAFOND = .35; // recommandation HCSF, devenue contraignante au 1er janvier 2022
+const f = n => n.toLocaleString('fr-FR', {maximumFractionDigits: 0}) + ' €';
+const pc = x => isFinite(x) ? (x * 100).toLocaleString('fr-FR', {maximumFractionDigits: 1}) + ' %' : '—';
+const v = id => parseFloat(document.getElementById(id).value) || 0;
+const ecrire = (id, txt, rouge) => { const el = document.getElementById(id); el.textContent = txt; el.className = rouge ? 'neg' : ''; };
+function calcul() {
+  const r = v('rev'), c = v('cred'), n = v('neuf');
+  const t1 = r ? c / r : NaN, t2 = r ? (c + n) / r : NaN, max = r * PLAFOND - c, marge = max - n;
+  ecrire('tx1', pc(t1), t1 > PLAFOND);
+  ecrire('tx2', pc(t2), t2 > PLAFOND);
+  ecrire('max', f(Math.max(0, max)));
+  ecrire('marge', f(marge), marge < 0);
+  ecrire('reste', f(r - c - n), r - c - n < 0);
+}
+document.addEventListener('input', calcul);
+calcul();
+</script>
+</body>
+</html>
