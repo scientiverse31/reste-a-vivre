@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Épargne de précaution — combien mettre de côté ? Calculateur gratuit</title>
+<meta name="description" content="Calculez le montant de votre épargne de précaution (3 à 6 mois de dépenses essentielles), combien de mois vous tenez déjà et en combien de temps vous atteindrez l'objectif. Gratuit, rien n'est envoyé.">
+<link rel="canonical" href="https://scientiverse31.github.io/reste-a-vivre/epargne-precaution.html">
+<style>
+:root{--fond:#f6f2ea;--carte:#fff;--texte:#1f2a24;--doux:#5d6b63;--vert:#2d4a3e;--rouge:#b3261e;--bord:#e3ddd0}
+@media (prefers-color-scheme:dark){:root{--fond:#161a18;--carte:#1f2522;--texte:#ecebe6;--doux:#a9b3ad;--vert:#7fb89c;--rouge:#ef8f86;--bord:#333b37}}
+*{box-sizing:border-box}body{margin:0;background:var(--fond);color:var(--texte);font:17px/1.55 system-ui,'Segoe UI',sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 16px 60px}h1{font-size:2.1rem;line-height:1.15;margin:0 0 8px}
+p.s{color:var(--doux);margin:0 0 28px}.carte{background:var(--carte);border:1px solid var(--bord);border-radius:10px;padding:22px;margin-bottom:22px}
+h2{font-size:1.15rem;margin:0 0 14px}label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--bord)}
+label:last-child{border:0}input{width:130px;padding:8px 10px;font:inherit;text-align:right;border:1px solid var(--bord);border-radius:6px;background:var(--fond);color:var(--texte)}
+table{width:100%;border-collapse:collapse}th,td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--bord)}th:first-child,td:first-child{text-align:left}
+.neg{color:var(--rouge);font-weight:600}a.btn{display:inline-block;background:var(--vert);color:var(--fond);padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600}
+nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(--doux)}@media (max-width:560px){input{width:110px}th,td{font-size:.9rem}}
+</style>
+</head>
+<body>
+<main>
+<nav><a href="./">Calcul du reste à vivre</a> · <a href="budget-50-30-20.html">Règle 50/30/20</a> · <a href="taux-endettement.html">Taux d'endettement</a> · <b>Épargne de précaution</b></nav>
+<h1>Épargne de précaution : combien mettre de côté ?</h1>
+<p class="s">L'épargne de précaution couvre les coups durs : panne de voiture, perte d'emploi, facture imprévue. Le repère courant est de 3 à 6 mois de dépenses essentielles, sur un placement disponible à tout moment. Rien n'est envoyé : le calcul se fait dans votre navigateur.</p>
+
+<div class="carte"><h2>Vos dépenses essentielles (par mois)</h2>
+<label>Logement (loyer ou crédit, charges) <input type="number" min="0" step="any" id="log" value="0"></label>
+<label>Alimentation <input type="number" min="0" step="any" id="alim" value="0"></label>
+<label>Transport <input type="number" min="0" step="any" id="trans" value="0"></label>
+<label>Énergie, assurances, téléphone <input type="number" min="0" step="any" id="fixe" value="0"></label>
+<label>Autres dépenses indispensables <input type="number" min="0" step="any" id="autre" value="0"></label>
+</div>
+
+<div class="carte"><h2>Votre épargne</h2>
+<label>Épargne disponible aujourd'hui <input type="number" min="0" step="any" id="epa" value="0"></label>
+<label>Ce que vous pouvez mettre de côté chaque mois <input type="number" min="0" step="any" id="mois" value="0"></label>
+</div>
+
+<div class="carte"><h2>Résultat</h2>
+<table>
+<tr><td>Dépenses essentielles par mois</td><td id="dep"></td></tr>
+<tr><td>Vous tenez déjà</td><td id="tenue"></td></tr>
+<tr><td>Objectif à 3 mois</td><td id="o3"></td></tr>
+<tr><td>Objectif à 6 mois</td><td id="o6"></td></tr>
+<tr><td>Délai pour atteindre 3 mois</td><td id="d3"></td></tr>
+<tr><td>Délai pour atteindre 6 mois</td><td id="d6"></td></tr>
+</table>
+<p><small>Un chiffre en rouge signifie que vous tenez moins de 3 mois. Indépendant, revenus irréguliers ou foyer à un seul salaire : visez plutôt 6 mois. Pour savoir ce que vous pouvez épargner, <a href="./">calculez votre reste à vivre</a>.</small></p>
+</div>
+
+<div class="carte"><h2>Trouver de quoi épargner chaque mois</h2>
+<p>Le plus dur est de savoir où passe l'argent. Le tableur <b>Mon budget 2026</b> (Excel et Google Sheets, en français) suit vos dépenses mois par mois et calcule seul votre taux d'épargne : vous voyez tout de suite ce que vous pouvez mettre de côté.</p>
+<a class="btn" href="https://scientiverse.gumroad.com/l/mon-budget-2026">Voir le tableur — 4,50 €</a>
+</div>
+
+<p><small>Outil d'information, pas un conseil financier ni en placement. Les repères de 3 et 6 mois sont des usages courants, pas une règle légale. L'épargne de précaution se place généralement sur un livret réglementé disponible à tout moment (Livret A, LDDS).</small></p>
+</main>
+<script>
+const f = n => n.toLocaleString('fr-FR', {maximumFractionDigits: 0}) + ' €';
+const v = id => parseFloat(document.getElementById(id).value) || 0;
+const ecrire = (id, txt, rouge) => { const el = document.getElementById(id); el.textContent = txt; el.className = rouge ? 'neg' : ''; };
+// Délai en mois entiers pour combler l'écart ; « atteint » si déjà couvert
+function delai(objectif, epa, m) {
+  const ecart = objectif - epa;
+  if (ecart <= 0) return 'atteint';
+  if (m <= 0) return '—';
+  const n = Math.ceil(ecart / m);
+  return n < 12 ? n + ' mois' : Math.floor(n / 12) + ' an' + (n >= 24 ? 's' : '') + (n % 12 ? ' et ' + n % 12 + ' mois' : '');
+}
+function calcul() {
+  const d = ['log', 'alim', 'trans', 'fixe', 'autre'].reduce((s, id) => s + v(id), 0);
+  const e = v('epa'), m = v('mois'), t = d ? e / d : NaN;
+  ecrire('dep', f(d));
+  ecrire('tenue', isFinite(t) ? t.toLocaleString('fr-FR', {maximumFractionDigits: 1}) + ' mois' : '—', t < 3);
+  ecrire('o3', f(3 * d));
+  ecrire('o6', f(6 * d));
+  ecrire('d3', d ? delai(3 * d, e, m) : '—');
+  ecrire('d6', d ? delai(6 * d, e, m) : '—');
+}
+document.addEventListener('input', calcul);
+calcul();
+</script>
+</body>
+</html>
