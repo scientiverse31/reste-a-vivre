@@ -53,8 +53,30 @@ small{color:var(--doux)}@media (max-width:560px){.res{grid-template-columns:1fr}
 <a class="btn" id="achat" href="https://scientiverse.gumroad.com/l/mon-budget-2026">Voir le tableur — 4,50 €</a>
 </div>
 
+<div class="carte" id="faq"><h2>Questions fréquentes</h2>
+<h3>Qu'est-ce que le reste à vivre ?</h3>
+<p>C'est la somme qui reste chaque mois une fois toutes les charges fixes payées (logement, énergie, assurances, crédits, impôts, abonnements). Elle sert à vivre : alimentation, habillement, loisirs, imprévus et épargne.</p>
+<h3>Comment calculer son reste à vivre ?</h3>
+<p>Reste à vivre = revenus nets du mois (salaires, allocations, autres revenus) − charges fixes du mois. En le divisant par 30, on obtient le budget par jour ; en le divisant par le nombre de personnes du foyer, le budget par personne.</p>
+<h3>Quel reste à vivre minimum exige une banque ?</h3>
+<p>Il n'existe pas de seuil légal unique : chaque banque fixe le sien selon la composition du foyer et ses revenus. Ce qui est encadré, c'est le taux d'endettement, limité à 35 % des revenus (assurance comprise) par la norme du Haut Conseil de stabilité financière. <a style="color:var(--vert)" href="taux-endettement.html">Calculer son taux d'endettement</a>.</p>
+<h3>Faut-il compter les allocations dans les revenus ?</h3>
+<p>Pour son propre budget, oui : les allocations régulières (CAF, aides au logement…) font partie de ce qui entre chaque mois. Une banque peut en revanche ne pas toutes les retenir dans son analyse.</p>
+<h3>Que faire si mon reste à vivre est négatif ou trop faible ?</h3>
+<p>Repérez d'abord les charges compressibles (abonnements, assurances, énergie), puis répartissez le reste avec la <a style="color:var(--vert)" href="budget-50-30-20.html">règle 50/30/20</a>. Dès que possible, constituez une <a style="color:var(--vert)" href="epargne-precaution.html">épargne de précaution</a> de 3 à 6 mois de dépenses essentielles.</p>
+</div>
+
 <p><small>Outil d'organisation, pas un conseil financier. Les montants restent sur votre appareil.</small></p>
 </main>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Qu'est-ce que le reste à vivre ?","acceptedAnswer":{"@type":"Answer","text":"C'est la somme qui reste chaque mois une fois toutes les charges fixes payées (logement, énergie, assurances, crédits, impôts, abonnements). Elle sert à vivre : alimentation, habillement, loisirs, imprévus et épargne."}},
+{"@type":"Question","name":"Comment calculer son reste à vivre ?","acceptedAnswer":{"@type":"Answer","text":"Reste à vivre = revenus nets du mois (salaires, allocations, autres revenus) − charges fixes du mois. En le divisant par 30, on obtient le budget par jour ; en le divisant par le nombre de personnes du foyer, le budget par personne."}},
+{"@type":"Question","name":"Quel reste à vivre minimum exige une banque ?","acceptedAnswer":{"@type":"Answer","text":"Il n'existe pas de seuil légal unique : chaque banque fixe le sien selon la composition du foyer et ses revenus. Ce qui est encadré, c'est le taux d'endettement, limité à 35 % des revenus (assurance comprise) par la norme du Haut Conseil de stabilité financière."}},
+{"@type":"Question","name":"Faut-il compter les allocations dans les revenus ?","acceptedAnswer":{"@type":"Answer","text":"Pour son propre budget, oui : les allocations régulières (CAF, aides au logement…) font partie de ce qui entre chaque mois. Une banque peut en revanche ne pas toutes les retenir dans son analyse."}},
+{"@type":"Question","name":"Que faire si mon reste à vivre est négatif ou trop faible ?","acceptedAnswer":{"@type":"Answer","text":"Repérez d'abord les charges compressibles (abonnements, assurances, énergie), puis répartissez le reste avec la règle 50/30/20. Dès que possible, constituez une épargne de précaution de 3 à 6 mois de dépenses essentielles."}}
+]}
+</script>
 <script>
 const f = n => n.toLocaleString('fr-FR', {maximumFractionDigits: 0}) + ' €';
 const somme = sel => [...document.querySelectorAll(sel)].reduce((t, i) => t + (parseFloat(i.value) || 0), 0);
