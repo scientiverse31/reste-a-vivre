@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calcul du reste à vivre — calculateur gratuit</title>
-<meta name="description" content="Calculez gratuitement votre reste à vivre par mois, par jour et par personne. Simple, sans inscription, rien n'est envoyé.">
+<title>Calcul du reste à vivre : calculateur gratuit et exemples par foyer</title>
+<meta name="description" content="Calculez votre reste à vivre par mois, par jour et par personne, avec des exemples chiffrés (personne seule, parent seul, couple, famille). Gratuit, sans inscription.">
 <style>
 :root{--fond:#f6f2ea;--carte:#fff;--texte:#1f2a24;--doux:#5d6b63;--vert:#2d4a3e;--rouge:#b3261e;--bord:#e3ddd0}
 @media (prefers-color-scheme:dark){:root{--fond:#161a18;--carte:#1f2522;--texte:#ecebe6;--doux:#a9b3ad;--vert:#7fb89c;--rouge:#ef8f86;--bord:#333b37}}
@@ -53,6 +53,22 @@ small{color:var(--doux)}@media (max-width:560px){.res{grid-template-columns:1fr}
 <a class="btn" id="achat" href="https://scientiverse.gumroad.com/l/mon-budget-2026">Voir le tableur — 4,50 €</a>
 </div>
 
+<div class="carte" id="exemples"><h2>Exemples de reste à vivre selon le foyer</h2>
+<p>Quatre foyers types, avec des charges fixes courantes (montants indicatifs, à remplacer par les vôtres). Le bouton « Charger » remplit le calculateur avec l'exemple.</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.95rem">
+<thead><tr style="text-align:left"><th>Foyer</th><th>Revenus</th><th>Charges fixes</th><th>Reste à vivre</th><th>Par jour</th><th>Par personne</th><th></th></tr></thead>
+<tbody>
+<tr data-ex="1500,0,0|600,70,20,40,40,75,0,0,30|1"><td>Personne seule</td><td>1 500 €</td><td>875 €</td><td><b>625 €</b></td><td>21 €</td><td>625 €</td><td><button type="button">Charger</button></td></tr>
+<tr data-ex="1700,300,0|750,90,25,45,50,100,0,0,30|2"><td>Parent seul, 1 enfant</td><td>2 000 €</td><td>1 090 €</td><td><b>910 €</b></td><td>30 €</td><td>455 €</td><td><button type="button">Charger</button></td></tr>
+<tr data-ex="3200,0,0|900,100,30,50,70,200,150,120,50|2"><td>Couple sans enfant</td><td>3 200 €</td><td>1 670 €</td><td><b>1 530 €</b></td><td>51 €</td><td>765 €</td><td><button type="button">Charger</button></td></tr>
+<tr data-ex="4000,150,0|1200,150,40,60,120,250,0,150,60|4"><td>Couple, 2 enfants</td><td>4 150 €</td><td>2 030 €</td><td><b>2 120 €</b></td><td>71 €</td><td>530 €</td><td><button type="button">Charger</button></td></tr>
+</tbody></table></div>
+<h3>Comment lire ces chiffres</h3>
+<p>Le couple avec deux enfants a le reste à vivre le plus élevé par mois, mais pas par personne : 530 € contre 765 € pour le couple sans enfant. C'est pourquoi il faut toujours regarder le montant <b>par personne</b> et <b>par jour</b>, pas seulement le total. Dans ces exemples, les charges fixes absorbent environ la moitié des revenus (49 à 58 %) : plus ce taux d'effort monte, moins il reste de marge pour l'alimentation, les imprévus et l'épargne.</p>
+<h3>Ce que le reste à vivre doit encore couvrir</h3>
+<p>Alimentation et produits d'hygiène, habillement, santé non remboursée, loisirs, cadeaux, frais de scolarité ou de garde, et l'épargne. Si, une fois ces postes estimés, il ne reste rien pour épargner, c'est le signe qu'une charge fixe est à renégocier (<a style="color:var(--vert)" href="abonnements.html">abonnements</a>, assurances, énergie).</p>
+</div>
+
 <div class="carte" id="faq"><h2>Questions fréquentes</h2>
 <h3>Qu'est-ce que le reste à vivre ?</h3>
 <p>C'est la somme qui reste chaque mois une fois toutes les charges fixes payées (logement, énergie, assurances, crédits, impôts, abonnements). Elle sert à vivre : alimentation, habillement, loisirs, imprévus et épargne.</p>
@@ -62,6 +78,8 @@ small{color:var(--doux)}@media (max-width:560px){.res{grid-template-columns:1fr}
 <p>Il n'existe pas de seuil légal unique : chaque banque fixe le sien selon la composition du foyer et ses revenus. Ce qui est encadré, c'est le taux d'endettement, limité à 35 % des revenus (assurance comprise) par la norme du Haut Conseil de stabilité financière. <a style="color:var(--vert)" href="taux-endettement.html">Calculer son taux d'endettement</a>.</p>
 <h3>Faut-il compter les allocations dans les revenus ?</h3>
 <p>Pour son propre budget, oui : les allocations régulières (CAF, aides au logement…) font partie de ce qui entre chaque mois. Une banque peut en revanche ne pas toutes les retenir dans son analyse.</p>
+<h3>Faut-il calculer le reste à vivre par foyer ou par personne ?</h3>
+<p>Les deux. Le total par foyer dit si le budget tient ; le montant par personne permet de comparer des foyers de tailles différentes. Une famille de quatre peut avoir un reste à vivre mensuel plus élevé qu'un couple sans enfant, mais plus faible par personne.</p>
 <h3>Que faire si mon reste à vivre est négatif ou trop faible ?</h3>
 <p>Repérez d'abord les charges compressibles (<a style="color:var(--vert)" href="abonnements.html">abonnements</a>, assurances, énergie), puis répartissez le reste avec la <a style="color:var(--vert)" href="budget-50-30-20.html">règle 50/30/20</a>. Dès que possible, constituez une <a style="color:var(--vert)" href="epargne-precaution.html">épargne de précaution</a> de 3 à 6 mois de dépenses essentielles.</p>
 </div>
@@ -74,6 +92,7 @@ small{color:var(--doux)}@media (max-width:560px){.res{grid-template-columns:1fr}
 {"@type":"Question","name":"Comment calculer son reste à vivre ?","acceptedAnswer":{"@type":"Answer","text":"Reste à vivre = revenus nets du mois (salaires, allocations, autres revenus) − charges fixes du mois. En le divisant par 30, on obtient le budget par jour ; en le divisant par le nombre de personnes du foyer, le budget par personne."}},
 {"@type":"Question","name":"Quel reste à vivre minimum exige une banque ?","acceptedAnswer":{"@type":"Answer","text":"Il n'existe pas de seuil légal unique : chaque banque fixe le sien selon la composition du foyer et ses revenus. Ce qui est encadré, c'est le taux d'endettement, limité à 35 % des revenus (assurance comprise) par la norme du Haut Conseil de stabilité financière."}},
 {"@type":"Question","name":"Faut-il compter les allocations dans les revenus ?","acceptedAnswer":{"@type":"Answer","text":"Pour son propre budget, oui : les allocations régulières (CAF, aides au logement…) font partie de ce qui entre chaque mois. Une banque peut en revanche ne pas toutes les retenir dans son analyse."}},
+{"@type": "Question", "name": "Faut-il calculer le reste à vivre par foyer ou par personne ?", "acceptedAnswer": {"@type": "Answer", "text": "Les deux. Le total par foyer dit si le budget tient ; le montant par personne permet de comparer des foyers de tailles différentes. Une famille de quatre peut avoir un reste à vivre mensuel plus élevé qu'un couple sans enfant, mais plus faible par personne."}},
 {"@type":"Question","name":"Que faire si mon reste à vivre est négatif ou trop faible ?","acceptedAnswer":{"@type":"Answer","text":"Repérez d'abord les charges compressibles (abonnements, assurances, énergie), puis répartissez le reste avec la règle 50/30/20. Dès que possible, constituez une épargne de précaution de 3 à 6 mois de dépenses essentielles."}}
 ]}
 </script>
@@ -89,6 +108,12 @@ function calcul() {
   document.getElementById('effort').textContent = r > 0 ? Math.round(c / r * 100) + ' %' : '—';
   document.getElementById('sortie').classList.toggle('neg', reste < 0);
 }
+document.querySelectorAll('[data-ex] button').forEach(b => b.onclick = () => {
+  const [r, c, n] = b.closest('tr').dataset.ex.split('|');
+  const put = (sel, vals) => document.querySelectorAll(sel).forEach((i, k) => i.value = vals.split(',')[k]);
+  put('[data-r]', r); put('[data-c]', c); document.getElementById('pers').value = n;
+  calcul(); document.getElementById('sortie').scrollIntoView({behavior: 'smooth'});
+});
 document.addEventListener('input', calcul);
 calcul();
 </script>
