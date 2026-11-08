@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcul des cotisations micro-entrepreneur 2026 : URSSAF, net et plafonds</title>
+<meta name="description" content="Calculez vos cotisations URSSAF de micro-entrepreneur en 2026 (vente, services BIC, libéral BNC, Cipav), avec ou sans versement libératoire, votre net et la distance aux plafonds et au seuil de TVA. Gratuit, sans inscription.">
+<link rel="canonical" href="https://scientiverse31.github.io/reste-a-vivre/cotisations-micro-entrepreneur.html">
+<style>
+:root{--fond:#f6f2ea;--carte:#fff;--texte:#1f2a24;--doux:#5d6b63;--vert:#2d4a3e;--rouge:#b3261e;--bord:#e3ddd0}
+@media (prefers-color-scheme:dark){:root{--fond:#161a18;--carte:#1f2522;--texte:#ecebe6;--doux:#a9b3ad;--vert:#7fb89c;--rouge:#ef8f86;--bord:#333b37}}
+*{box-sizing:border-box}body{margin:0;background:var(--fond);color:var(--texte);font:17px/1.55 system-ui,'Segoe UI',sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 16px 60px}h1{font-size:2.1rem;line-height:1.15;margin:0 0 8px}
+p.s{color:var(--doux);margin:0 0 28px}.carte{background:var(--carte);border:1px solid var(--bord);border-radius:10px;padding:22px;margin-bottom:22px}
+h2{font-size:1.15rem;margin:0 0 14px}h3{font-size:1rem;margin:16px 0 4px}
+label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--bord)}
+label:last-child{border:0}input,select{width:150px;padding:8px 10px;font:inherit;text-align:right;border:1px solid var(--bord);border-radius:6px;background:var(--fond);color:var(--texte)}
+select{width:230px;text-align:left}
+table{width:100%;border-collapse:collapse}th,td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--bord)}th:first-child,td:first-child{text-align:left}
+.neg{color:var(--rouge);font-weight:600}
+nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(--doux)}
+@media (max-width:560px){input{width:110px}select{width:160px}th,td{font-size:.9rem}h1{font-size:1.7rem}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Quel est le taux de cotisation d'un micro-entrepreneur en 2026 ?","acceptedAnswer":{"@type":"Answer","text":"12,3 % du chiffre d'affaires pour la vente de marchandises, 21,2 % pour les prestations de services commerciales ou artisanales (BIC), 25,6 % pour les professions libérales non réglementées (BNC) et 23,2 % pour les libéraux relevant de la Cipav."}},
+{"@type":"Question","name":"Qu'est-ce que le versement libératoire ?","acceptedAnswer":{"@type":"Answer","text":"C'est une option qui permet de payer l'impôt sur le revenu en même temps que les cotisations, par un pourcentage du chiffre d'affaires : 1 % pour la vente, 1,7 % pour les services BIC, 2,2 % pour les BNC. Elle est réservée aux foyers dont le revenu fiscal de référence ne dépasse pas un plafond."}},
+{"@type":"Question","name":"Quels sont les plafonds de la micro-entreprise ?","acceptedAnswer":{"@type":"Answer","text":"203 100 € de chiffre d'affaires annuel pour la vente de marchandises et 83 600 € pour les prestations de services et les activités libérales."}},
+{"@type":"Question","name":"À partir de quand faut-il facturer la TVA ?","acceptedAnswer":{"@type":"Answer","text":"La franchise en base s'applique jusqu'à 85 000 € de chiffre d'affaires pour la vente et 37 500 € pour les services. Au-delà du seuil majoré (93 500 € et 41 250 €), la TVA est due immédiatement."}}
+]}
+</script>
+</head>
+<body>
+<main>
+<nav><a href="./">Calcul du reste à vivre</a> · <a href="modele-budget-excel-gratuit.html">Modèle Excel gratuit</a> · <a href="budget-50-30-20.html">Règle 50/30/20</a> · <a href="taux-endettement.html">Taux d'endettement</a> · <a href="epargne-precaution.html">Épargne de précaution</a> · <a href="abonnements.html">Abonnements</a> · <b>Cotisations micro-entrepreneur</b></nav>
+<h1>Calcul des cotisations micro-entrepreneur 2026</h1>
+<p class="s">Entrez votre chiffre d'affaires : vous voyez ce que vous devez à l'URSSAF, ce qu'il vous reste, et où vous en êtes par rapport aux plafonds et au seuil de TVA. Taux 2026 repris de service-public.gouv.fr. Rien n'est envoyé.</p>
+
+<div class="carte"><h2>Votre activité</h2>
+<label>Type d'activité <select id="act">
+<option value="0">Vente de marchandises (BIC)</option>
+<option value="1" selected>Prestations de services (BIC)</option>
+<option value="2">Libéral non réglementé (BNC)</option>
+<option value="3">Libéral Cipav (BNC)</option></select></label>
+<label>Chiffre d'affaires de la période <input type="number" min="0" step="any" id="ca" value="0"></label>
+<label>Période <select id="per"><option value="12">Mois</option><option value="4">Trimestre</option><option value="1">Année</option></select></label>
+<label>Versement libératoire de l'impôt <select id="vl"><option value="0">Non</option><option value="1">Oui</option></select></label>
+</div>
+
+<div class="carte"><h2>Résultat</h2>
+<table>
+<tr><td>Cotisations sociales</td><td id="cot"></td></tr>
+<tr><td>Impôt (versement libératoire)</td><td id="imp"></td></tr>
+<tr><td><b>Total à payer à l'URSSAF</b></td><td id="tot"></td></tr>
+<tr><td><b>Ce qu'il vous reste</b></td><td id="net"></td></tr>
+<tr><td>Chiffre d'affaires sur un an (au même rythme)</td><td id="an"></td></tr>
+<tr><td>Plafond de la micro-entreprise</td><td id="plaf"></td></tr>
+<tr><td>Seuil de franchise de TVA</td><td id="tva"></td></tr>
+</table>
+<p><small id="taux"></small></p>
+<p><small>Non inclus : contribution à la formation professionnelle (CFP) et taxe pour frais de chambre consulaire (quelques dixièmes de pour cent). Sans versement libératoire, l'impôt sur le revenu se paie à part, selon votre foyer.</small></p>
+</div>
+
+<div class="carte"><h2>Les taux et seuils 2026</h2>
+<table>
+<tr><th>Activité</th><th>Cotisations</th><th>Avec versement libératoire</th><th>Plafond</th></tr>
+<tr><td>Vente de marchandises</td><td>12,3 %</td><td>13,3 %</td><td>203 100 €</td></tr>
+<tr><td>Services BIC</td><td>21,2 %</td><td>22,9 %</td><td>83 600 €</td></tr>
+<tr><td>Libéral BNC</td><td>25,6 %</td><td>27,8 %</td><td>83 600 €</td></tr>
+<tr><td>Libéral Cipav</td><td>23,2 %</td><td>25,4 %</td><td>83 600 €</td></tr>
+</table>
+<p><small>Franchise de TVA : 85 000 € (vente) et 37 500 € (services), seuils majorés 93 500 € et 41 250 €. Sources : fiches F36232, F32353 et F21746 de service-public.gouv.fr, vérifiées le 01/11/2026. La déclaration se fait sur autoentrepreneur.urssaf.fr.</small></p>
+</div>
+
+<div class="carte"><h2>Questions fréquentes</h2>
+<h3>Quel est le taux de cotisation d'un micro-entrepreneur en 2026 ?</h3>
+<p>12,3 % du chiffre d'affaires pour la vente de marchandises, 21,2 % pour les prestations de services commerciales ou artisanales (BIC), 25,6 % pour les professions libérales non réglementées (BNC) et 23,2 % pour les libéraux relevant de la Cipav.</p>
+<h3>Qu'est-ce que le versement libératoire ?</h3>
+<p>C'est une option qui permet de payer l'impôt sur le revenu en même temps que les cotisations, par un pourcentage du chiffre d'affaires : 1 % pour la vente, 1,7 % pour les services BIC, 2,2 % pour les BNC. Elle est réservée aux foyers dont le revenu fiscal de référence ne dépasse pas un plafond.</p>
+<h3>Quels sont les plafonds de la micro-entreprise ?</h3>
+<p>203 100 € de chiffre d'affaires annuel pour la vente de marchandises et 83 600 € pour les prestations de services et les activités libérales.</p>
+<h3>À partir de quand faut-il facturer la TVA ?</h3>
+<p>La franchise en base s'applique jusqu'à 85 000 € de chiffre d'affaires pour la vente et 37 500 € pour les services. Au-delà du seuil majoré (93 500 € et 41 250 €), la TVA est due immédiatement.</p>
+</div>
+
+<p><small>Outil d'estimation, pas un conseil fiscal ni social.</small></p>
+</main>
+<script>
+// [cotisations, avec versement libératoire, plafond, franchise TVA]
+const T = [[.123, .133, 203100, 85000], [.212, .229, 83600, 37500], [.256, .278, 83600, 37500], [.232, .254, 83600, 37500]];
+const f = n => n.toLocaleString('fr-FR', {maximumFractionDigits: 0}) + ' €';
+const pc = n => (n * 100).toLocaleString('fr-FR', {maximumFractionDigits: 1}) + ' %';
+const $ = id => document.getElementById(id);
+function calcul() {
+  const [c, cv, plaf, tva] = T[+$('act').value], vl = $('vl').value === '1';
+  const ca = parseFloat($('ca').value) || 0, an = ca * +$('per').value;
+  const cot = ca * c, imp = vl ? ca * (cv - c) : 0;
+  $('cot').textContent = f(cot); $('imp').textContent = vl ? f(imp) : '—';
+  $('tot').textContent = f(cot + imp); $('net').textContent = f(ca - cot - imp);
+  $('an').textContent = f(an);
+  $('plaf').textContent = f(plaf) + (an > plaf ? ' — dépassé' : ' (' + pc(an / plaf) + ' atteint)');
+  $('plaf').className = an > plaf ? 'neg' : '';
+  $('tva').textContent = f(tva) + (an > tva ? ' — dépassé' : ' (' + pc(an / tva) + ' atteint)');
+  $('tva').className = an > tva ? 'neg' : '';
+  $('taux').textContent = 'Taux appliqué : ' + pc(vl ? cv : c) + ' du chiffre d\'affaires.';
+}
+document.addEventListener('input', calcul);
+calcul();
+</script>
+</body>
+</html>

@@ -10,6 +10,7 @@ Petits outils gratuits pour faire ses comptes, sans inscription : tous les calcu
 | [Taux d'endettement](https://scientiverse31.github.io/reste-a-vivre/taux-endettement.html) | Vérifier la limite des 35 % et la mensualité encore possible |
 | [Épargne de précaution](https://scientiverse31.github.io/reste-a-vivre/epargne-precaution.html) | Combien mettre de côté (3 à 6 mois de dépenses) et en combien de temps |
 | [Coût des abonnements](https://scientiverse31.github.io/reste-a-vivre/abonnements.html) | Ce que coûtent ses abonnements par mois, par an et sur 5 ans |
+| [Cotisations micro-entrepreneur 2026](https://scientiverse31.github.io/reste-a-vivre/cotisations-micro-entrepreneur.html) | Cotisations URSSAF, versement libératoire, net, plafonds et seuil de TVA |
 
 Pour suivre son budget toute l'année : le tableur [Mon budget 2026](https://scientiverse.gumroad.com/l/mon-budget-2026) (Excel et Google Sheets, en français, 4,50 €).
 
