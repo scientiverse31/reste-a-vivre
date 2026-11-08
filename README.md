@@ -5,6 +5,7 @@ Petits outils gratuits pour faire ses comptes, sans inscription : tous les calcu
 | Outil | À quoi il sert |
 |---|---|
 | [Calcul du reste à vivre](https://scientiverse31.github.io/reste-a-vivre/) | Ce qu'il reste chaque mois une fois les charges fixes payées, par jour et par personne |
+| [Modèle de budget Excel gratuit](https://scientiverse31.github.io/reste-a-vivre/modele-budget-excel-gratuit.html) | Un budget mensuel à télécharger (Excel, Google Sheets, LibreOffice), calculs automatiques |
 | [Règle 50/30/20](https://scientiverse31.github.io/reste-a-vivre/budget-50-30-20.html) | Répartir ses revenus entre besoins, envies et épargne, et voir les écarts |
 | [Taux d'endettement](https://scientiverse31.github.io/reste-a-vivre/taux-endettement.html) | Vérifier la limite des 35 % et la mensualité encore possible |
 | [Épargne de précaution](https://scientiverse31.github.io/reste-a-vivre/epargne-precaution.html) | Combien mettre de côté (3 à 6 mois de dépenses) et en combien de temps |
