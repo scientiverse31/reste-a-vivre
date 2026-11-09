@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Taux d'endettement — calculateur gratuit (règle des 35 %)</title>
-<meta name="description" content="Calculez votre taux d'endettement et la mensualité de crédit encore possible sous le plafond de 35 % fixé par le HCSF. Gratuit, sans inscription, rien n'est envoyé.">
+<title>Taux d'endettement : calcul gratuit et capacité d'emprunt selon vos revenus</title>
+<meta name="description" content="Calculez votre taux d'endettement, la mensualité maximale à 35 % et combien emprunter selon vos revenus (1 500 à 5 000 €). Exemples chiffrés, FAQ, gratuit et sans inscription.">
 <link rel="canonical" href="https://scientiverse31.github.io/reste-a-vivre/taux-endettement.html">
 <style>
 :root{--fond:#f6f2ea;--carte:#fff;--texte:#1f2a24;--doux:#5d6b63;--vert:#2d4a3e;--rouge:#b3261e;--bord:#e3ddd0}
@@ -17,7 +17,9 @@ label:last-child{border:0}input{width:130px;padding:8px 10px;font:inherit;text-a
 table{width:100%;border-collapse:collapse}th,td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--bord)}th:first-child,td:first-child{text-align:left}
 .neg{color:var(--rouge);font-weight:600}a.btn{display:inline-block;background:var(--vert);color:var(--fond);padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600}
 nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(--doux)}@media (max-width:560px){input{width:110px}th,td{font-size:.9rem}}
+button{font:inherit;font-size:.9rem;padding:4px 10px;border:1px solid var(--vert);border-radius:6px;background:none;color:var(--vert);cursor:pointer}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment calculer son taux d'endettement ?", "acceptedAnswer": {"@type": "Answer", "text": "On divise le total des mensualités de crédit (assurance comprise) par les revenus nets mensuels du foyer, puis on multiplie par 100. Exemple : 700 € de mensualités pour 2 000 € de revenus donnent 35 %."}}, {"@type": "Question", "name": "Quel est le taux d'endettement maximum en 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "35 % des revenus nets, assurance emprunteur comprise. C'est la norme du Haut Conseil de stabilité financière (HCSF), obligatoire pour les banques depuis le 1er janvier 2022. La durée du prêt immobilier est aussi limitée à 25 ans (27 ans dans certains cas de construction ou de travaux)."}}, {"@type": "Question", "name": "Une banque peut-elle prêter au-delà de 35 % ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, à la marge : chaque banque peut déroger à la règle pour 20 % de ses nouveaux crédits immobiliers chaque trimestre, en priorité pour l'achat d'une résidence principale. Ces dérogations vont surtout aux revenus élevés, dont le reste à vivre reste confortable malgré un taux plus haut."}}, {"@type": "Question", "name": "Combien puis-je emprunter avec 2 000 € de revenus ?", "acceptedAnswer": {"@type": "Answer", "text": "À 35 %, la mensualité maximale est de 700 €. Avec un coût de 3,5 % par an assurance comprise (hypothèse), cela représente environ 121 000 € sur 20 ans ou 140 000 € sur 25 ans, si vous n'avez aucun autre crédit. Le taux réel dépend de votre banque et de votre dossier."}}, {"@type": "Question", "name": "Quels revenus et quelles charges la banque prend-elle en compte ?", "acceptedAnswer": {"@type": "Answer", "text": "Côté revenus : salaires nets, revenus d'indépendant (souvent sur 3 ans), pensions, une partie des loyers perçus (souvent 70 %). Côté charges : toutes les mensualités de crédit en cours et le nouveau prêt. Le loyer actuel disparaît si vous achetez votre résidence principale ; les pensions alimentaires versées sont en général ajoutées aux charges."}}]}</script>
 </head>
 <body>
 <main>
@@ -40,6 +42,33 @@ nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(
 <tr><td>Reste après tous les crédits</td><td id="reste"></td></tr>
 </table>
 <p><small>Un chiffre en rouge signifie que le plafond de 35 % est dépassé. La banque regarde aussi ce qu'il vous reste pour vivre : <a href="./">calculez votre reste à vivre</a>.</small></p>
+</div>
+
+<div class="carte"><h2>Combien emprunter selon vos revenus ?</h2>
+<p>Mensualité maximale à 35 % et capital empruntable indicatif, sans autre crédit en cours. Hypothèse : coût de 3,5 % par an assurance comprise. Votre taux réel dépend de la banque, de l'apport et du dossier.</p>
+<table>
+<tr><th>Revenus nets</th><th>Mensualité max.</th><th>Sur 20 ans</th><th>Sur 25 ans</th><th>Reste après crédit</th><th></th></tr>
+<tr><td>1 500 €</td><td>525 €</td><td>91 000 €</td><td>105 000 €</td><td>975 €</td><td><button type="button" data-r="1500" data-n="525">Charger</button></td></tr>
+<tr><td>2 000 €</td><td>700 €</td><td>121 000 €</td><td>140 000 €</td><td>1 300 €</td><td><button type="button" data-r="2000" data-n="700">Charger</button></td></tr>
+<tr><td>2 500 €</td><td>875 €</td><td>151 000 €</td><td>175 000 €</td><td>1 625 €</td><td><button type="button" data-r="2500" data-n="875">Charger</button></td></tr>
+<tr><td>3 000 €</td><td>1 050 €</td><td>181 000 €</td><td>210 000 €</td><td>1 950 €</td><td><button type="button" data-r="3000" data-n="1050">Charger</button></td></tr>
+<tr><td>4 000 €</td><td>1 400 €</td><td>241 000 €</td><td>280 000 €</td><td>2 600 €</td><td><button type="button" data-r="4000" data-n="1400">Charger</button></td></tr>
+<tr><td>5 000 €</td><td>1 750 €</td><td>302 000 €</td><td>350 000 €</td><td>3 250 €</td><td><button type="button" data-r="5000" data-n="1750">Charger</button></td></tr>
+</table>
+<p><small>« Charger » remplit le calculateur avec l'exemple. Le « reste après crédit » doit encore couvrir le logement (si vous restez locataire), les courses, l'énergie, le transport : la banque le regarde autant que le taux.</small></p>
+</div>
+
+<div class="carte"><h2>Questions fréquentes</h2>
+<h3>Comment calculer son taux d'endettement ?</h3>
+<p>On divise le total des mensualités de crédit (assurance comprise) par les revenus nets mensuels du foyer, puis on multiplie par 100. Exemple : 700 € de mensualités pour 2 000 € de revenus donnent 35 %.</p>
+<h3>Quel est le taux d'endettement maximum en 2026 ?</h3>
+<p>35 % des revenus nets, assurance emprunteur comprise. C'est la norme du Haut Conseil de stabilité financière (HCSF), obligatoire pour les banques depuis le 1er janvier 2022. La durée du prêt immobilier est aussi limitée à 25 ans (27 ans dans certains cas de construction ou de travaux).</p>
+<h3>Une banque peut-elle prêter au-delà de 35 % ?</h3>
+<p>Oui, à la marge : chaque banque peut déroger à la règle pour 20 % de ses nouveaux crédits immobiliers chaque trimestre, en priorité pour l'achat d'une résidence principale. Ces dérogations vont surtout aux revenus élevés, dont le reste à vivre reste confortable malgré un taux plus haut.</p>
+<h3>Combien puis-je emprunter avec 2 000 € de revenus ?</h3>
+<p>À 35 %, la mensualité maximale est de 700 €. Avec un coût de 3,5 % par an assurance comprise (hypothèse), cela représente environ 121 000 € sur 20 ans ou 140 000 € sur 25 ans, si vous n'avez aucun autre crédit. Le taux réel dépend de votre banque et de votre dossier.</p>
+<h3>Quels revenus et quelles charges la banque prend-elle en compte ?</h3>
+<p>Côté revenus : salaires nets, revenus d'indépendant (souvent sur 3 ans), pensions, une partie des loyers perçus (souvent 70 %). Côté charges : toutes les mensualités de crédit en cours et le nouveau prêt. Le loyer actuel disparaît si vous achetez votre résidence principale ; les pensions alimentaires versées sont en général ajoutées aux charges.</p>
 </div>
 
 <div class="carte"><h2>Préparer son dossier de crédit</h2>
@@ -65,6 +94,7 @@ function calcul() {
   ecrire('reste', f(r - c - n), r - c - n < 0);
 }
 document.addEventListener('input', calcul);
+document.addEventListener('click', e => { const b = e.target.closest('button[data-r]'); if (!b) return; rev.value = b.dataset.r; cred.value = 0; neuf.value = b.dataset.n; calcul(); rev.scrollIntoView({behavior: 'smooth', block: 'center'}); });
 calcul();
 </script>
 </body>
