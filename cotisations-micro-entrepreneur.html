@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calcul des cotisations micro-entrepreneur 2026 : URSSAF, net et plafonds</title>
-<meta name="description" content="Calculez vos cotisations URSSAF de micro-entrepreneur en 2026 (vente, services BIC, libéral BNC, Cipav), avec ou sans versement libératoire, votre net et la distance aux plafonds et au seuil de TVA. Gratuit, sans inscription.">
+<title>Cotisations micro-entrepreneur 2026 : calcul URSSAF, exemples par activité</title>
+<meta name="description" content="Exemples chiffrés par activité (vente, artisan, graphiste, libéral) et calculateur gratuit. Calculez vos cotisations URSSAF de micro-entrepreneur en 2026 (vente, services BIC, libéral BNC, Cipav), avec ou sans versement libératoire, votre net et la distance aux plafonds et au seuil de TVA. Gratuit, sans inscription.">
 <link rel="canonical" href="https://scientiverse31.github.io/reste-a-vivre/cotisations-micro-entrepreneur.html">
 <style>
 :root{--fond:#f6f2ea;--carte:#fff;--texte:#1f2a24;--doux:#5d6b63;--vert:#2d4a3e;--rouge:#b3261e;--bord:#e3ddd0}
@@ -16,6 +16,7 @@ h2{font-size:1.15rem;margin:0 0 14px}h3{font-size:1rem;margin:16px 0 4px}
 label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--bord)}
 label:last-child{border:0}input,select{width:150px;padding:8px 10px;font:inherit;text-align:right;border:1px solid var(--bord);border-radius:6px;background:var(--fond);color:var(--texte)}
 select{width:230px;text-align:left}
+button{font:inherit;font-size:.9rem;padding:5px 10px;border:1px solid var(--vert);border-radius:6px;background:transparent;color:var(--vert);cursor:pointer}
 table{width:100%;border-collapse:collapse}th,td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--bord)}th:first-child,td:first-child{text-align:left}
 .neg{color:var(--rouge);font-weight:600}
 nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(--doux)}
@@ -26,7 +27,9 @@ nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(
 {"@type":"Question","name":"Quel est le taux de cotisation d'un micro-entrepreneur en 2026 ?","acceptedAnswer":{"@type":"Answer","text":"12,3 % du chiffre d'affaires pour la vente de marchandises, 21,2 % pour les prestations de services commerciales ou artisanales (BIC), 25,6 % pour les professions libérales non réglementées (BNC) et 23,2 % pour les libéraux relevant de la Cipav."}},
 {"@type":"Question","name":"Qu'est-ce que le versement libératoire ?","acceptedAnswer":{"@type":"Answer","text":"C'est une option qui permet de payer l'impôt sur le revenu en même temps que les cotisations, par un pourcentage du chiffre d'affaires : 1 % pour la vente, 1,7 % pour les services BIC, 2,2 % pour les BNC. Elle est réservée aux foyers dont le revenu fiscal de référence ne dépasse pas un plafond."}},
 {"@type":"Question","name":"Quels sont les plafonds de la micro-entreprise ?","acceptedAnswer":{"@type":"Answer","text":"203 100 € de chiffre d'affaires annuel pour la vente de marchandises et 83 600 € pour les prestations de services et les activités libérales."}},
-{"@type":"Question","name":"À partir de quand faut-il facturer la TVA ?","acceptedAnswer":{"@type":"Answer","text":"La franchise en base s'applique jusqu'à 85 000 € de chiffre d'affaires pour la vente et 37 500 € pour les services. Au-delà du seuil majoré (93 500 € et 41 250 €), la TVA est due immédiatement."}}
+{"@type":"Question","name":"À partir de quand faut-il facturer la TVA ?","acceptedAnswer":{"@type":"Answer","text":"La franchise en base s'applique jusqu'à 85 000 € de chiffre d'affaires pour la vente et 37 500 € pour les services. Au-delà du seuil majoré (93 500 € et 41 250 €), la TVA est due immédiatement."}},
+{"@type": "Question", "name": "Les cotisations se calculent-elles sur le bénéfice ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. En micro-entreprise, les cotisations sont un pourcentage du chiffre d'affaires réellement encaissé sur la période, sans déduction des frais. Avec 3 000 € encaissés en services BIC, vous payez 636 € même si vous avez eu 500 € de dépenses."}},
+{"@type": "Question", "name": "Quand déclarer son chiffre d'affaires ?", "acceptedAnswer": {"@type": "Answer", "text": "Chaque mois ou chaque trimestre, selon l'option choisie, sur autoentrepreneur.urssaf.fr. Le paiement se fait au moment de la déclaration. Un mois sans chiffre d'affaires doit être déclaré à 0 €."}}
 ]}
 </script>
 </head>
@@ -61,6 +64,19 @@ nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(
 <p><small>Non inclus : contribution à la formation professionnelle (CFP) et taxe pour frais de chambre consulaire (quelques dixièmes de pour cent). Sans versement libératoire, l'impôt sur le revenu se paie à part, selon votre foyer.</small></p>
 </div>
 
+<div class="carte"><h2>Combien selon votre activité ? Exemples chiffrés</h2>
+<p>Chiffre d'affaires mensuel régulier, taux 2026. Cliquez sur « Charger » pour reprendre l'exemple dans le calculateur, puis mettez vos propres chiffres.</p>
+<table>
+<tr><th>Exemple</th><th>CA / mois</th><th>URSSAF</th><th>Reste</th><th>Seuil de TVA</th><th></th></tr>
+<tr><td>Vente en ligne de marchandises</td><td>2 000 €</td><td>246 €</td><td>1 754 €</td><td>28 %</td><td><button data-ex="0,2000,0">Charger</button></td></tr>
+<tr><td>Artisan, dépannage (services BIC)</td><td>3 000 €</td><td>636 €</td><td>2 364 €</td><td>96 %</td><td><button data-ex="1,3000,0">Charger</button></td></tr>
+<tr><td>Graphiste, coach (libéral BNC)</td><td>2 500 €</td><td>640 €</td><td>1 860 €</td><td>80 %</td><td><button data-ex="2,2500,0">Charger</button></td></tr>
+<tr><td>Libéral Cipav</td><td>4 000 €</td><td>928 €</td><td>3 072 €</td><td class="neg">dépassé</td><td><button data-ex="3,4000,0">Charger</button></td></tr>
+<tr><td>Activité complémentaire (services BIC, versement libératoire)</td><td>800 €</td><td>183 €</td><td>617 €</td><td>26 %</td><td><button data-ex="1,800,1">Charger</button></td></tr>
+</table>
+<p><small>Lecture : à 3 000 € par mois de services, vous êtes à 96 % du seuil de franchise de TVA (37 500 €) ; un mois plus fort suffit à le franchir. À 4 000 € par mois (48 000 € par an), la TVA est due dès le dépassement du seuil majoré de 41 250 €. Le « reste » est avant impôt sur le revenu, sauf avec le versement libératoire.</small></p>
+</div>
+
 <div class="carte"><h2>Les taux et seuils 2026</h2>
 <table>
 <tr><th>Activité</th><th>Cotisations</th><th>Avec versement libératoire</th><th>Plafond</th></tr>
@@ -81,6 +97,10 @@ nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(
 <p>203 100 € de chiffre d'affaires annuel pour la vente de marchandises et 83 600 € pour les prestations de services et les activités libérales.</p>
 <h3>À partir de quand faut-il facturer la TVA ?</h3>
 <p>La franchise en base s'applique jusqu'à 85 000 € de chiffre d'affaires pour la vente et 37 500 € pour les services. Au-delà du seuil majoré (93 500 € et 41 250 €), la TVA est due immédiatement.</p>
+<h3>Les cotisations se calculent-elles sur le bénéfice ?</h3>
+<p>Non. En micro-entreprise, les cotisations sont un pourcentage du chiffre d'affaires réellement encaissé sur la période, sans déduction des frais. Avec 3 000 € encaissés en services BIC, vous payez 636 € même si vous avez eu 500 € de dépenses.</p>
+<h3>Quand déclarer son chiffre d'affaires ?</h3>
+<p>Chaque mois ou chaque trimestre, selon l'option choisie, sur autoentrepreneur.urssaf.fr. Le paiement se fait au moment de la déclaration. Un mois sans chiffre d'affaires doit être déclaré à 0 €.</p>
 </div>
 
 <p><small>Outil d'estimation, pas un conseil fiscal ni social.</small></p>
@@ -105,6 +125,12 @@ function calcul() {
   $('taux').textContent = 'Taux appliqué : ' + pc(vl ? cv : c) + ' du chiffre d\'affaires.';
 }
 document.addEventListener('input', calcul);
+// « Charger » : activité, CA mensuel, versement libératoire, puis remonte au calculateur
+document.querySelectorAll('button[data-ex]').forEach(b => b.addEventListener('click', () => {
+  const [a, ca, v] = b.dataset.ex.split(',');
+  $('act').value = a; $('ca').value = ca; $('per').value = '12'; $('vl').value = v;
+  calcul(); $('act').scrollIntoView({behavior: 'smooth', block: 'center'});
+}));
 calcul();
 </script>
 </body>
