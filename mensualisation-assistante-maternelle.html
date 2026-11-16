@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mensualisation assistante maternelle 2026 : calcul du salaire et des indemnités d'entretien</title>
+<meta name="description" content="Calculez le salaire mensualisé de votre assistante maternelle (année complète ou incomplète), les heures à déclarer sur Pajemploi, l'indemnité d'entretien minimum et les congés payés. Taux au 1er juin 2026, calcul gratuit dans votre navigateur.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Comment calculer la mensualisation d'une assistante maternelle ?","acceptedAnswer":{"@type":"Answer","text":"Salaire horaire brut × heures d'accueil par semaine × nombre de semaines, divisé par 12. On prend 52 semaines si l'enfant est accueilli toute l'année (congés de l'assistante maternelle compris), sinon le nombre de semaines programmées au contrat (46 ou moins). Exemple : 4,20 € × 40 h × 52 / 12 = 728 € brut par mois."}},
+{"@type":"Question","name":"Quel est le salaire horaire minimum d'une assistante maternelle en 2026 ?","acceptedAnswer":{"@type":"Answer","text":"Au 1er juin 2026, le minimum conventionnel est de 4,20 € brut (3,28 € net) par heure et par enfant, ou 4,37 € brut pour une assistante maternelle titulaire du titre de la branche. Le plancher légal est de 0,281 SMIC, soit 3,46 € brut."}},
+{"@type":"Question","name":"Quel est le montant minimum de l'indemnité d'entretien ?","acceptedAnswer":{"@type":"Answer","text":"Au 1er juin 2026 : 3,92 € pour une journée de 9 heures (90 % du minimum garanti de 4,35 €). En dessous de 9 heures, 3,92 € / 9 × nombre d'heures, sans descendre sous 2,65 € par jour. Au-delà, 0,435 € par heure supplémentaire. Elle n'est pas due les jours d'absence de l'enfant."}},
+{"@type":"Question","name":"Comment sont payés les congés payés en année incomplète ?","acceptedAnswer":{"@type":"Answer","text":"Ils ne sont pas compris dans la mensualisation : ils s'ajoutent, à hauteur de 10 % de la rémunération brute de l'année de référence (ou par maintien de salaire si c'est plus favorable), versés en général en juin ou selon l'accord prévu au contrat."}},
+{"@type":"Question","name":"Combien d'heures déclarer sur Pajemploi ?","acceptedAnswer":{"@type":"Answer","text":"Les heures mensualisées : heures par semaine × nombre de semaines / 12, diminuées des heures d'absence non rémunérées. Par exemple 40 h × 52 / 12 = 173,33 heures par mois."}}
+]}
+</script>
+<link rel="canonical" href="https://scientiverse31.github.io/reste-a-vivre/mensualisation-assistante-maternelle.html">
+<style>
+:root{--fond:#f6f2ea;--carte:#fff;--texte:#1f2a24;--doux:#5d6b63;--vert:#2d4a3e;--rouge:#b3261e;--bord:#e3ddd0}
+@media (prefers-color-scheme:dark){:root{--fond:#161a18;--carte:#1f2522;--texte:#ecebe6;--doux:#a9b3ad;--vert:#7fb89c;--rouge:#ef8f86;--bord:#333b37}}
+*{box-sizing:border-box}body{margin:0;background:var(--fond);color:var(--texte);font:17px/1.55 system-ui,'Segoe UI',sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 16px 60px}h1{font-size:2.1rem;line-height:1.15;margin:0 0 8px}
+p.s{color:var(--doux);margin:0 0 28px}.carte{background:var(--carte);border:1px solid var(--bord);border-radius:10px;padding:22px;margin-bottom:22px}
+h2{font-size:1.15rem;margin:0 0 14px}label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--bord)}
+label:last-child{border:0}input{width:130px;padding:8px 10px;font:inherit;text-align:right;border:1px solid var(--bord);border-radius:6px;background:var(--fond);color:var(--texte)}
+table{width:100%;border-collapse:collapse}th,td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--bord)}th:first-child,td:first-child{text-align:left}
+.neg{color:var(--rouge);font-weight:600}a.btn{display:inline-block;background:var(--vert);color:var(--fond);padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600}
+nav{margin-bottom:24px;font-size:.95rem}nav a{color:var(--vert)}small{color:var(--doux)}@media (max-width:560px){input{width:110px}th,td{font-size:.9rem}}
+</style>
+</head>
+<body>
+<main>
+<nav><a href="./">Calcul du reste à vivre</a> · <a href="modele-budget-excel-gratuit.html">Modèle Excel gratuit</a> · <a href="budget-50-30-20.html">Règle 50/30/20</a> · <a href="taux-endettement.html">Taux d'endettement</a> · <a href="epargne-precaution.html">Épargne de précaution</a> · <a href="abonnements.html">Abonnements</a> · <a href="cotisations-micro-entrepreneur.html">Cotisations micro-entrepreneur</a> · <b>Mensualisation assistante maternelle</b></nav>
+<h1>Mensualisation de l'assistante maternelle : calcul 2026</h1>
+<p class="s">Parent employeur ou assistante maternelle : calculez le salaire mensualisé, les heures à déclarer sur Pajemploi, l'indemnité d'entretien minimum et les congés payés. Taux en vigueur au 1er juin 2026. Rien n'est envoyé : le calcul se fait dans votre navigateur.</p>
+
+<div class="carte"><h2>Le contrat (pour un enfant)</h2>
+<label>Salaire horaire brut (€) <input type="number" min="0" step="0.01" id="taux" value="4.20"></label>
+<label>Jours d'accueil par semaine <input type="number" min="0" max="7" step="1" id="jours" value="4"></label>
+<label>Heures d'accueil par jour <input type="number" min="0" max="24" step="0.25" id="hj" value="10"></label>
+<label>Semaines d'accueil par an (52 = toute l'année) <input type="number" min="1" max="52" step="1" id="sem" value="52"></label>
+<label>Majoration des heures au-delà de 45 h (%) <input type="number" min="10" step="1" id="maj" value="10"></label>
+</div>
+
+<div class="carte"><h2>Résultat par mois</h2>
+<table>
+<tr><td>Type d'accueil</td><td id="type"></td></tr>
+<tr><td>Heures par semaine</td><td id="hs"></td></tr>
+<tr><td>Heures mensualisées (à déclarer sur Pajemploi)</td><td id="hm"></td></tr>
+<tr><td>Salaire mensualisé brut</td><td id="sal"></td></tr>
+<tr><td>Indemnité d'entretien minimum par jour</td><td id="ej"></td></tr>
+<tr><td>Indemnité d'entretien minimum par mois (sans absence)</td><td id="em"></td></tr>
+<tr><td>Congés payés en plus (année incomplète, estimation 10 %)</td><td id="cp"></td></tr>
+</table>
+<p id="alerte" class="neg"></p>
+<p><small>Le net dépend des cotisations : Pajemploi le calcule à la déclaration. Les indemnités d'entretien ne sont pas un salaire (pas de cotisations) et ne sont pas dues les jours où l'enfant est absent. Repas et frais kilométriques s'ajoutent selon le contrat.</small></p>
+</div>
+
+<div class="carte"><h2>Exemples chiffrés (taux au 1er juin 2026)</h2>
+<p>Cliquez sur « Charger » pour reprendre l'exemple dans le calculateur et l'ajuster à votre contrat.</p>
+<table>
+<tr><th>Situation</th><th>Salaire brut / mois</th><th>Heures / mois</th><th>Entretien / mois</th><th></th></tr>
+<tr><td>Temps plein, 4 jours de 10 h, toute l'année (4,20 €)</td><td>728,00 €</td><td>173,33 h</td><td>75,49 €</td><td><button data-ex="4.20,4,10,52">Charger</button></td></tr>
+<tr><td>Parent enseignant, 4 jours de 9 h, 46 semaines (4,20 €)</td><td>579,60 € + congés</td><td>138,00 h</td><td>60,11 €</td><td><button data-ex="4.20,4,9,46">Charger</button></td></tr>
+<tr><td>Périscolaire, 4 jours de 3 h, 36 semaines (4,20 €)</td><td>151,20 € + congés</td><td>36,00 h</td><td>31,80 €</td><td><button data-ex="4.20,4,3,36">Charger</button></td></tr>
+<tr><td>5 jours de 9 h, toute l'année (4,50 €)</td><td>877,50 €</td><td>195,00 h</td><td>84,93 €</td><td><button data-ex="4.50,5,9,52">Charger</button></td></tr>
+</table>
+</div>
+
+<div class="carte"><h2>Tout noter au jour le jour</h2>
+<p>Le <b>Carnet de bord de l'assistante maternelle</b> (broché, 168 pages) réunit les transmissions de chaque journée (repas, sieste, change, activités) et, chaque mois, un relevé des heures, des indemnités d'entretien et de repas, des absences et des congés, prêt à reporter sur Pajemploi.</p>
+<a class="btn" href="https://www.amazon.fr/s?k=carnet+de+bord+assistante+maternelle+Latorre&amp;i=stripbooks">Voir le carnet sur Amazon — 10,54 €</a>
+</div>
+
+<div class="carte"><h2>Questions fréquentes</h2>
+<h3>Comment calculer la mensualisation ?</h3>
+<p>Salaire horaire brut × heures d'accueil par semaine × nombre de semaines, divisé par 12. On prend 52 semaines si l'enfant est accueilli toute l'année (les 5 semaines de congés de l'assistante maternelle sont comprises), sinon le nombre de semaines programmées au contrat (46 ou moins). Exemple : 4,20 € × 40 h × 52 / 12 = 728 € brut par mois.</p>
+<h3>Quel est le salaire horaire minimum en 2026 ?</h3>
+<p>Au 1er juin 2026, le minimum conventionnel est de 4,20 € brut (3,28 € net) par heure et par enfant, ou 4,37 € brut pour une assistante maternelle titulaire du titre « assistante maternelle-garde d'enfants à domicile ». Le plancher légal est de 0,281 SMIC, soit 3,46 € brut.</p>
+<h3>Quel est le montant minimum de l'indemnité d'entretien ?</h3>
+<p>3,92 € pour une journée de 9 heures (90 % du minimum garanti de 4,35 €). En dessous de 9 heures : 3,92 € / 9 × nombre d'heures, sans descendre sous 2,65 € par jour. Au-delà : 0,435 € par heure supplémentaire (11 heures donnent 4,79 €).</p>
+<h3>Comment sont payés les congés en année incomplète ?</h3>
+<p>Ils ne sont pas compris dans la mensualisation. Ils s'ajoutent, à hauteur de 10 % de la rémunération brute de l'année de référence (ou par maintien de salaire si c'est plus favorable), versés en général en juin ou selon l'accord prévu au contrat. Le calculateur en donne une estimation mensuelle.</p>
+<h3>Combien d'heures déclarer sur Pajemploi ?</h3>
+<p>Les heures mensualisées : heures par semaine × nombre de semaines / 12, diminuées des heures d'absence non rémunérées. Au-delà de 45 heures par semaine, les heures sont majorées d'au moins 10 %.</p>
+</div>
+
+<p><small>Outil d'information, pas un conseil juridique. Sources : fiche « Les assistant(e)s maternel(le)s employé(e)s par les particuliers : rémunération, indemnités et frais » de la DREETS Pays de la Loire (taux au 01/06/2026 : SMIC 12,31 €, minimum garanti 4,35 €) et convention collective des particuliers employeurs (IDCC 3239). Vérifiez votre contrat et votre déclaration sur Pajemploi.</small></p>
+</main>
+<script>
+const eur = n => n.toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' €';
+const v = id => parseFloat(document.getElementById(id).value) || 0;
+const ecrire = (id, txt, rouge) => { const el = document.getElementById(id); el.textContent = txt; el.className = rouge ? 'neg' : ''; };
+// Indemnité d'entretien minimum (DREETS, 01/06/2026) : 3,92 € pour 9 h ; prorata sous 9 h avec plancher 2,65 € ; +0,435 €/h au-delà
+const entretienJour = h => h <= 0 ? 0 : h < 9 ? Math.max(2.65, 3.92 / 9 * h) : 3.92 + 0.435 * (h - 9);
+function calcul() {
+  const taux = v('taux'), j = v('jours'), hj = v('hj'), sem = Math.min(52, v('sem')), maj = Math.max(10, v('maj'));
+  const complete = sem >= 47; // 47 semaines d'accueil + 5 de congés = accueil toute l'année
+  const base = complete ? 52 : sem, hs = j * hj;
+  const hPayees = Math.min(hs, 45) + Math.max(hs - 45, 0) * (1 + maj / 100);
+  const sal = taux * hPayees * base / 12, ej = entretienJour(hj);
+  ecrire('type', complete ? 'Toute l\'année (52 semaines)' : 'Année incomplète (' + sem + ' semaines)');
+  ecrire('hs', hs.toLocaleString('fr-FR', {maximumFractionDigits: 2}) + ' h');
+  ecrire('hm', (hs * base / 12).toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' h');
+  ecrire('sal', eur(sal), taux < 3.46);
+  ecrire('ej', eur(ej));
+  ecrire('em', eur(ej * j * base / 12));
+  ecrire('cp', complete ? 'compris' : eur(sal * 0.10));
+  const a = [];
+  if (taux > 0 && taux < 3.46) a.push('Salaire horaire sous le plancher légal de 3,46 € brut (0,281 SMIC) : illégal.');
+  else if (taux > 0 && taux < 4.20) a.push('Salaire horaire sous le minimum conventionnel de 4,20 € brut au 1er juin 2026.');
+  if (hs > 45) a.push('Plus de 45 h par semaine : heures au-delà majorées d\'au moins 10 % (comptées dans le salaire ci-dessus).');
+  document.getElementById('alerte').textContent = a.join(' ');
+}
+document.addEventListener('input', calcul);
+// « Charger » : taux, jours, heures par jour, semaines, puis remonte au calculateur
+document.querySelectorAll('button[data-ex]').forEach(b => b.addEventListener('click', () => {
+  b.dataset.ex.split(',').forEach((x, i) => document.getElementById(['taux', 'jours', 'hj', 'sem'][i]).value = x);
+  calcul(); document.getElementById('taux').scrollIntoView({behavior: 'smooth', block: 'center'});
+}));
+calcul();
+</script>
+</body>
+</html>
